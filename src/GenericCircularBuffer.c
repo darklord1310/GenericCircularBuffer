@@ -73,23 +73,22 @@ void circularBufferAdd(CircularBuffer *cb, void *objectToAdd, void(*copy)(void*,
  *Input :
  *					Pointer cb is the pointer which pointed to the CircularBuffer structure
  *					objectToDel is the pointer pointed to the value to be remove
- *					copy is a function pointer which point to the copyInt function
+ *					copy is a function pointer which pointed to the copyInt function
  *
  * Error checking:
  *					will throw error when trying to remove if the circular buffer is empty
  */
 void circularBufferRemove(CircularBuffer *cb, void *objectToDel, void(*copy)(void*,void*))
 {
-	// int removed_value;
 	
-	// if( cb->size == 0)              // Check whether the circularbuffer is empty or not
-		// Throw(ERR_BUFFER_IS_EMPTY);
-	// else
-	// {
-			// removed_value = *(cb->tail);  // put the value in the pointer to variable removed_value, then decrement the size and increase the address of tail
-			// cb->size--;
-			// cb->tail++;
-	// }
-
+	if( cb->size == 0)              // Check whether the circularbuffer is empty or not
+		 Throw(ERR_BUFFER_IS_EMPTY);
+	else
+		{
+			copy(objectToDel,cb->tail);  // put the value in the pointer to variable removed_value, then decrement the size and increase the address of tail
+			cb->size--;
+			cb->tail+=cb->sizeofType;
+		}
+		
 }
 
