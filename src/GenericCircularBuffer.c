@@ -41,7 +41,7 @@ void circularBufferDel(CircularBuffer *circularBuffer)
  *Input :
  *					Pointer cb is the pointer which pointed to the CircularBuffer structure
  *					valueToAdd is the pointer pointed to the value which to be added into the CircularBuffer
- *					copy is a function pointer which point to the copyInt function
+ *					copy is a function pointer which point to either copyInt or copyDouble function
  * Error checking:
  *					will throw error when trying to add if the circular buffer is full
  */
@@ -73,7 +73,7 @@ void circularBufferAdd(CircularBuffer *cb, void *objectToAdd, void(*copy)(void*,
  *Input :
  *					Pointer cb is the pointer which pointed to the CircularBuffer structure
  *					objectToDel is the pointer pointed to the value to be remove
- *					copy is a function pointer which pointed to the copyInt function
+ *					copy is a function pointer which pointed to the either copyInt or copyDouble function
  *
  * Error checking:
  *					will throw error when trying to remove if the circular buffer is empty
