@@ -52,14 +52,14 @@ void circularBufferAdd(CircularBuffer *cb, void *objectToAdd, void(*copy)(void*,
 		Throw(ERR_BUFFER_IS_FULL);
     else
 	{
-		if( cb->size == 0)				   // if size=0 means the first value to be added, hence point to tail
+		if( cb->size == 0)				   // if size=0 means the first value to be added, hence object added to tail
 		{		
 			copy(cb->tail, objectToAdd);
 			cb->size++;
 		}
 		else
 		{
-			cb->buffer+=cb->sizeofType;		//  if not the first value in the circularbuffer, then point head to it
+			cb->buffer+=cb->sizeofType;		//  if not the first value in the circularbuffer, then add to head
 			copy(cb->buffer, objectToAdd);
 			cb->head = cb->buffer;
 			cb->size++;

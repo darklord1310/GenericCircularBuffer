@@ -2,8 +2,8 @@
 
 void copyDouble (void *a, void*b)
 {
-	int *buffer = (int *)a;
-	int *object = (int *)b;
+	double *buffer = (double *)a;
+	double *object = (double *)b;
 
 	*buffer = *object;
 }
